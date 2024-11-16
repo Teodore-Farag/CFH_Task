@@ -80,7 +80,7 @@ You can change from one to all fields of a task. If everything is fine it will r
 
 Seventh API lets the user delete a specific task using its id
 app.post('/deleteTask/:id',authenticate,deleteTask)
-In postman make a post reguest using the url http://localhost:3000/updateTask/:id where the :id is the id of the task that is going to be deleted.
+In postman make a post reguest using the url http://localhost:3000/deleteTask/:id where the :id is the id of the task that is going to be deleted.
 If a user inputs an id that does not exist in his list of tasks it will return ("User Does not have access to this task),
 else the task will get deleted and amessage will appear (Task deleted Succesfully).
 
