@@ -71,12 +71,15 @@ const createTask=async(req,res)=>{
     return res.status(201).json("Created Succesfully");
   } catch (error) {
     console.error('Error querying the database:', error.message);
-    return res.status(500).json({ error: 'Failed to retrieve tasks' });
+    return res.status(500).json({ error: 'Failed to create tasks' });
   }
 }
 const updateTask=async(req,res)=>{
   TaskId=req.params.id;
   var{Title,Description,Due_Date,Status}=req.body;
+  if(!Title &&!Description&&!Due_Date&&!Status){
+    return res.json("Nothing to Change")
+  }
   if(Status){
   if(Status!='Pending' && Status!='Not Started'&& Status!='Completed'){
     return res.json("Invalid Status while creating, Status availabe:[Pending,Not Started,Completed]");
